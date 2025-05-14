@@ -13,11 +13,11 @@
       height: 600px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 1);
     }
-    .player-buttons {
+    .player-buttons-container {
       flex: 0 0 auto;
       background-color: #000;
     }
-    .play-pause-button{
+    .player-button{
       border: none;
       cursor: pointer;
       background-color: transparent;
@@ -32,12 +32,18 @@
 <body>
   <div id="player" class="player-container">
     <div class="js-video-container video-container"></div>
-    <div class="player-buttons">
-      <button class="js-play-button play-pause-button" >
+    <div class="player-buttons-container">
+      <button class="js-play-button player-button" >
         <i class="fa fa-play" aria-hidden="true"> </i>
       </button>
-      <button class="js-pause-button play-pause-button" >
+      <button class="js-pause-button player-button" hidden >
         <i class="fa fa-pause" aria-hidden="true"> </i>
+      </button>
+      <button class="js-volume-button player-button" hidden>
+        <i class="fa fa-volume-off" aria-hidden="true"> </i>
+      </button>
+      <button class="js-mute-button player-button" >
+        <i class="fa fa-volume-up" aria-hidden="true"> </i>
       </button>
     </div>
 
