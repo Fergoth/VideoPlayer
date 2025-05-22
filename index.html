@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
   <link rel="icon" type="image/png" href="/logo.svg" sizes="16x16">
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="normalize.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <title>Плеер</title>
   <meta charset="utf-8">
-  <style type="text/css">
+  <style>
     .player {
       display: flex;
       flex-direction: column;
@@ -50,11 +51,13 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
     }
 
     .viewing-time {
       flex-grow: 1;
       margin: auto;
+      padding-top: 2px;
     }
 
     .viewing-progressbar {
@@ -78,7 +81,7 @@
     .video-duration {
       flex-grow: 1;
       margin: auto -2.5px;
-
+      padding-top: 2px;
     }
 
     .right-buttons {
@@ -97,7 +100,11 @@
       margin-left: 1px;
     }
 
-    .dot {
+    .viewing-progressbar .dot {
+      transition-property: opacity;
+      transition-duration: 300ms;
+      transition-timing-function : ease-out;
+      opacity: 0;
       height: 7.5px;
       width: 7.5px;
       background-color: #f8104d;
@@ -106,6 +113,11 @@
       border-style: solid;
       border-width: 3.5px;
       margin: -10px;
+    }
+
+    .viewing-progressbar:hover .dot {
+      opacity: 1;
+      transition-timing-function : ease-in;
     }
   </style>
 </head>
@@ -133,8 +145,7 @@
           <span class="js-current-time "></span>
         </div>
         <div class="js-progress viewing-progressbar">
-          <div class="js-progress-slider slider">
-          </div>
+          <div class="js-progress-slider slider"></div>
           <span class="dot"></span>
         </div>
         <div class="video-duration">
@@ -153,7 +164,7 @@
   <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
   <script src="player.js"></script>
 
-  <script type="text/javascript">
+  <script>
     createPlayer({ elementId: 'player' });
   </script>
 
