@@ -40,39 +40,72 @@
       font-size: 20px;
       margin: 4px 2px;
     }
-    .left-buttons{
+
+    .left-buttons {
       flex-grow: 1.6;
     }
-    .viewing-panel{
+
+    .viewing-panel {
       flex-grow: 200;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
     }
-    .viewing-time{
+
+    .viewing-time {
       flex-grow: 1;
-       margin: auto;
-    }
-    .viewing-progressbar{
-      flex-grow: 100;
       margin: auto;
     }
-    .video-duration{
+
+    .viewing-progressbar {
+      flex-grow: 100;
+      margin: auto;
+      background-color: black;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+    .slider {
+      background-color: red;
+      height: 5px;
+      margin: 1px 1px 1px 4px;
+      border-radius: 3px;
+    }
+
+    .video-duration {
       flex-grow: 1;
       margin: auto -2.5px;
-      
+
     }
-    .right-buttons{
+
+    .right-buttons {
       flex-grow: 1;
     }
+
     .video-container {
       flex: 1 1 auto;
     }
-    .play{
+
+    .play {
       margin-left: 4px;
     }
-    .fullscreen{
+
+    .fullscreen {
       margin-left: 1px;
+    }
+
+    .dot {
+      height: 7.5px;
+      width: 7.5px;
+      background-color: #f8104d;
+      border-radius: 50%;
+      display: inline-block;
+      border-style: solid;
+      border-width: 3.5px;
+      margin: -10px;
     }
   </style>
 </head>
@@ -99,7 +132,11 @@
         <div class="viewing-time">
           <span class="js-current-time "></span>
         </div>
-        <div class="viewing-progressbar"></div>
+        <div class="js-progress viewing-progressbar">
+          <div class="js-progress-slider slider">
+          </div>
+          <span class="dot"></span>
+        </div>
         <div class="video-duration">
           <span class="js-duration "></span>
         </div>
@@ -108,7 +145,7 @@
         <button class="js-fullscreen-button player-button fullscreen">
           <i class="fa fa-expand" aria-hidden="true"> </i>
         </button>
-        </div>
+      </div>
     </div>
 
   </div>
